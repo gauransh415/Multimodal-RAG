@@ -44,6 +44,14 @@ class Settings(BaseSettings):
     TOP_K_RETRIEVAL: int = 5
     SIMILARITY_THRESHOLD: float = 0.7
     
+    @property
+    def CORS_ORIGINS(self) -> List[str]:
+        return self.BACKEND_CORS_ORIGINS
+    
+    @property
+    def UPLOAD_DIR(self) -> str:
+        return self.UPLOAD_PATH
+
     class Config:
         env_file = ".env"
         case_sensitive = True

@@ -23,7 +23,7 @@ class ChatMessage(Base):
     role = Column(String, nullable=False)  # user, assistant, system
     content = Column(Text, nullable=False)
     content_type = Column(String, default="text")  # text, image, multimodal
-    metadata = Column(Text)  # JSON string for additional data
+    message_metadata = Column(Text)  # JSON string for additional data
     timestamp = Column(DateTime(timezone=True), server_default=func.now())
     
     session = relationship("ChatSession", back_populates="messages")

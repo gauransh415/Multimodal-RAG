@@ -7,7 +7,7 @@ from pathlib import Path
 
 from app.core.config import settings
 from app.core.database import get_db
-from app.services.enhanced_rag_service import enhanced_rag_service
+from app.services.rag_service import enhanced_rag_service
 from sqlalchemy.orm import Session
 
 router = APIRouter()

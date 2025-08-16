@@ -5,7 +5,7 @@ import uuid
 import json
 import base64
 
-from app.services.enhanced_rag_service import enhanced_rag_service, EnhancedRAGResponse
+from app.services.rag_service import enhanced_rag_service, EnhancedRAGResponse
 from app.models.chat import ChatSession, ChatMessage
 from app.core.database import get_db
 from sqlalchemy.orm import Session

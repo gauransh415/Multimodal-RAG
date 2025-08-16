@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, Text, ForeignKey, Float
+from sqlalchemy import Column, Integer, String, DateTime, Text, ForeignKey, Float, Boolean
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
 from app.core.database import Base
@@ -13,7 +13,7 @@ class Document(Base):
     file_type = Column(String, nullable=False)
     file_size = Column(Integer, nullable=False)
     content_type = Column(String, nullable=False)  # text, image, multimodal
-    processed = Column(bool, default=False)
+    processed = Column(Boolean, default=False)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     
@@ -26,7 +26,7 @@ class DocumentChunk(Base):
     document_id = Column(Integer, ForeignKey("documents.id"), nullable=False)
     chunk_index = Column(Integer, nullable=False)
     content = Column(Text, nullable=False)
-    metadata = Column(Text)  # JSON string
+    chunk_metadata = Column(Text)  # JSON string
     embedding_id = Column(String)  # Vector store reference
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     
